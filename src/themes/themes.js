@@ -18,77 +18,7 @@
   //    cssFile    - path to a CSS file to inject when this theme is active
   //                 (see src/themes/example.css and README.md for guidance)
   // ==========================================================================
-  const FULL_THEMES = [
-    {
-      id: "supremacy",
-      label: "Supremacy",
-      author: "voxlis",
-      thumbnail: "https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/2139460/ceac3f2dd323201409ff386df51811edefe515bb.gif",
-      swatch: "#dc2626",
-      swatchRgb: "220, 38, 38",
-      cssFile: "/src/themes/supremacy.css",
-    },
-    {
-      id: "mercy",
-      label: "Vanilla Mercy",
-      author: "voxlis",
-      thumbnail: "https://i.pinimg.com/736x/7a/ae/ea/7aaeeaee3da7bb7e40e2c529be174e0b.jpg",
-      swatch: "#d97706",
-      swatchRgb: "217, 119, 6",
-      cssFile: "/src/themes/mercy.css",
-    },
-    {
-      id: "empire",
-      label: "Testing",
-      author: "voxlis",
-      thumbnail: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/65/656f85b33509454efe2e14a36c82af7c1dc9fc2a_full.jpg",
-      swatch: "#3b82f6",
-      swatchRgb: "59, 130, 246",
-      cssFile: "/src/themes/empire.css",
-    },
-    {
-      id: "aurora",
-      label: "Testing 2",
-      author: "voxlis",
-      swatch: "#8B5CF6",
-      swatchRgb: "139, 92, 246",
-      cssFile: "/src/themes/aurora.css",
-    },
-    {
-      id: "neon",
-      label: "Testing 3",
-      author: "voxlis",
-      swatch: "#00FF88",
-      swatchRgb: "0, 255, 136",
-      cssFile: "/src/themes/neon.css",
-    },
-    {
-      id: "y2k",
-      label: "Testing 4",
-      author: "voxlis",
-      swatch: "#4A90D9",
-      swatchRgb: "74, 144, 217",
-      cssFile: "/src/themes/y2k.css",
-    },
-    {
-      id: "dusk",
-      label: "Testing 5",
-      author: "voxlis",
-      swatch: "#D97706",
-      swatchRgb: "217, 119, 6",
-      cssFile: "/src/themes/dusk.css",
-    },
-    // Add more themes here — see README.md § 4 for the full guide:
-    // {
-    //   id: "kawaii",
-    //   label: "Kawaii",
-    //   author: "voxlis",
-    //   thumbnail: "/src/themes/thumbnails/kawaii.jpg",
-    //   swatch: "#f472b6",
-    //   swatchRgb: "244, 114, 182",
-    //   cssFile: "/src/themes/kawaii.css",
-    // },
-  ];
+  const FULL_THEMES = [];
 
   // ==========================================================================
   //  REGISTRATION — do not edit below this line

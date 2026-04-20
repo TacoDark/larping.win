@@ -9,7 +9,7 @@
   configSources.global = {
     repository: {
       owner: "localscripts",
-      name: "voxlis.NET",
+      name: "larping.win",
       branch: "main",
       commitEndpoint: isLocalPreview
         ? "http://localhost:8000/public_html/commit.php"
@@ -51,7 +51,7 @@
         toneClass: "is-warning",
         toastIcon: "fa-triangle-exclamation",
         info:
-          "voxlis.NET recommends reading more about this product before continuing with any purchases, so you know what you are getting.",
+          "larping.win recommends reading more about this product before continuing with any purchases, so you know what you are getting.",
       },
       warningred: {
         field: "warningred",
@@ -59,7 +59,7 @@
         icon: "fas fa-triangle-exclamation",
         iconToneClass: "ph-warn-red-ico",
         toastIcon: "fa-triangle-exclamation",
-        info: "This product has a high-risk warning on voxlis.NET.",
+        info: "This product has a high-risk warning on larping.win.",
       },
     },
     promo: {
@@ -83,7 +83,7 @@
           iconClass: "fab fa-youtube",
         },
         {
-          href: "https://www.trustpilot.com/review/voxlis.net",
+          href: "https://www.trustpilot.com/review/larping.win",
           label: "Trustpilot",
           trackingKey: "trustpilot",
           buttonClassName: "promo-action-button-trustpilot",

@@ -50,10 +50,10 @@
     options: [
       {
         id: "blue",
-        label: "Legacy",
+        label: "Monochrome",
         previewGradient:
-          "linear-gradient(90deg, rgba(96, 165, 250, 0.18) 0%, rgba(59, 130, 246, 0.12) 56%, rgba(37, 99, 235, 0.1) 100%)",
-        swatch: "#3B82F6",
+          "linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(200, 200, 200, 0.12) 56%, rgba(150, 150, 150, 0.1) 100%)",
+        swatch: "#FFFFFF",
         group: "accent",
       },
       {

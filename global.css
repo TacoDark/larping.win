@@ -34,17 +34,17 @@
   /* Main preset palette helpers.
      Preset theme blocks primarily override these, while the legacy public
      tokens below continue to feed the rest of the app. */
-  --theme-main-color: #3b82f6;
-  --theme-hover-color: #2563eb;
-  --theme-gradient-start-color: #60a5fa;
-  --theme-gradient-end-color: var(--theme-hover-color);
-  --theme-rgb: 59, 130, 246;
-  --theme-card-hover-alpha: 0.2;
-  --theme-glow-alpha: 0.5;
+  --theme-main-color: #ffffff;
+  --theme-hover-color: #e5e5e5;
+  --theme-gradient-start-color: #ffffff;
+  --theme-gradient-end-color: #cccccc;
+  --theme-rgb: 255, 255, 255;
+  --theme-card-hover-alpha: 0.15;
+  --theme-glow-alpha: 0.3;
   --theme-soft-tint-alpha: 0.1;
-  --theme-medium-tint-alpha: 0.3;
-  --theme-strong-tint-alpha: 0.5;
-  --theme-border-tint-alpha: 0.5;
+  --theme-medium-tint-alpha: 0.2;
+  --theme-strong-tint-alpha: 0.3;
+  --theme-border-tint-alpha: 0.3;
   --theme-status-updated-color-base: var(--theme-main-color);
   --theme-status-updated-rgb-base: var(--theme-rgb);
   --theme-status-muted-color-base: #9ca3af;
@@ -339,7 +339,7 @@
   --promo-button-shadow: 0 4px 6px -1px rgba(var(--prim-rgb), 0.1), 0 2px 4px -1px rgba(var(--prim-rgb), 0.05);
   --promo-button-hover-shadow: var(--prim-glow-shadow);
   --promo-button-icon-fill: var(--prim);
-  --promo-button-icon-color: #ffffff;
+  --promo-button-icon-color: #000000;
   --promo-button-icon-radius: 0.25rem;
   --promo-button-shine: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
   --promo-muted-button-text: rgba(209, 213, 219, 0.9);
