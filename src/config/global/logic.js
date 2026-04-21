@@ -15,7 +15,6 @@
     }
 
     if (
-      normalizedPath.startsWith("/") ||
       normalizedPath.startsWith("#") ||
       /^(?:[a-z]+:)?\/\//i.test(normalizedPath) ||
       /^(?:data|blob):/i.test(normalizedPath)
@@ -576,12 +575,13 @@
     String(value).replace(/[&<>"']/g, (character) => HTML_ESCAPE_MAP[character] || character);
 
   const fetchWithApiTimeout = (path, init = {}, options = {}) => {
+    const resolvedPath = resolveSitePath(path);
     const shouldMonitor =
-      options.monitor === true || (options.monitor !== false && isMonitoredApiUrl(path));
+      options.monitor === true || (options.monitor !== false && isMonitoredApiUrl(resolvedPath));
     if (shouldMonitor) {
-      return fetchWithTimeout(path, init, { ...options, monitor: true });
+      return fetchWithTimeout(resolvedPath, init, { ...options, monitor: true });
     }
-    return fetch(path, init);
+    return fetch(resolvedPath, init);
   };
 
   const markApiResponseDown = (path, response) => {

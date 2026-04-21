@@ -181,7 +181,7 @@
 
     return [
       ...new Set(
-        [...overrideCandidates, getCardDisplayName(slug), titleCase(slug)]
+        [...overrideCandidates, getCardDisplayName(slug), titleCase(slug), slug]
           .map((value) => String(value || "").trim())
           .filter(Boolean),
       ),
@@ -261,7 +261,7 @@
   };
 
   const fetchJson = async (path, { optional = false } = {}) => {
-    const response = await fetchWithApiTimeout(path, { cache: "no-cache" });
+    const response = await fetchWithApiTimeout(resolveSitePath(path), { cache: "no-cache" });
     if (response.ok) {
       const rawBody = await response.text();
       if (!rawBody.trim()) {
