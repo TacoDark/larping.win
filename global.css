@@ -23,6 +23,7 @@
   --background-media-overlay-strength: 38;
   --background-media-overlay-opacity: 0.171;
   --background-media-overlay: var(--background-media-overlay-color);
+  --prim-rgb: var(--theme-rgb);
 
   /* Core colors + shared legacy aliases */
   --bg: #000000;
@@ -34,11 +35,11 @@
   /* Main preset palette helpers.
      Preset theme blocks primarily override these, while the legacy public
      tokens below continue to feed the rest of the app. */
-  --theme-main-color: #ffffff;
-  --theme-hover-color: #e5e5e5;
-  --theme-gradient-start-color: #ffffff;
-  --theme-gradient-end-color: #cccccc;
-  --theme-rgb: 255, 255, 255;
+  --theme-main-color: #a855f7;
+  --theme-hover-color: #c084fc;
+  --theme-gradient-start-color: #a855f7;
+  --theme-gradient-end-color: #7c3aed;
+  --theme-rgb: 168, 85, 247;
   --theme-card-hover-alpha: 0.15;
   --theme-glow-alpha: 0.3;
   --theme-soft-tint-alpha: 0.1;
@@ -297,20 +298,20 @@
   --featured-image-radius: 0.5rem;
   --featured-overlay-fill: linear-gradient(90deg, var(--theme-gradient-start-color) 0%, var(--theme-main-color) 46%, #ffffff 100%);
   --featured-overlay-opacity: 0.98;
-  --featured-overlay-mask: url("/public/assets/overlay/promo-3.png");
+  --featured-overlay-mask: none;
 
   /* Shared logo/banner overlay art */
   --banner-overlay-fill: linear-gradient(90deg, var(--theme-gradient-start-color) 0%, var(--theme-main-color) 70%, var(--theme-gradient-end-color) 100%);
   --banner-overlay-opacity: 0.98;
-  --banner-overlay-mask: url("/public/assets/overlay/voxlis-2.png");
+  --banner-overlay-mask: none;
   --header-overlay-fill: linear-gradient(90deg, var(--theme-gradient-start-color) 0%, var(--theme-main-color) 70%, var(--theme-gradient-end-color) 100%);
   --header-overlay-opacity: 0.98;
-  --header-overlay-mask: url("/public/assets/overlay/voxlis-2.png");
-  --brand-gradient-enabled: 1;
+  --header-overlay-mask: none;
+  --brand-gradient-enabled: 0;
   --brand-gradient-color: #60a5fa;
   --brand-gradient-offset: 70%;
-  --sponsor-overlay-mask: url("/public/assets/icons/images/keyempire-logo.png");
-  --footer-heart-mask: url("/public/assets/icons/vectors/heart.svg");
+  --sponsor-overlay-mask: none;
+  --footer-heart-mask: none;
 
   /* Generic shadows + promo section */
   --shd: 0 10px 25px rgba(0, 0, 0, 0.2);

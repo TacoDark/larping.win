@@ -1,36 +1,44 @@
 {
-  "freeProducts": [
-    "aimmy",
-    "solara"
-  ],
-  "wave": {
-    "purchaseUrl": "https://key-empire.com/product/wave",
+  "freeProducts": ["aureus", "alcohol"],
+  "aureus": {
+    "purchaseUrl": "https://aureus.wtf/",
     "offers": [
       {
         "platform": "windows",
-        "days": 1,
-        "price": 2.49
-      },
-      {
-        "platform": "windows",
-        "days": 30,
-        "price": 18.99
+        "days": -1,
+        "price": 15
       }
     ]
   },
-  "codex": {
-    "purchaseUrl": "/",
+  "alcohol": {
+    "purchaseUrl": "https://discord.gg/u5dv2hrDyS",
     "offers": [
       {
-        "platform": "android",
-        "days": 30,
-        "price": 4.99
-      },
-      {
-        "platform": "android",
+        "platform": "linux",
         "days": -1,
-        "price": 19.99
+        "price": "INVITE ONLY"
+      }
+    ]
+  },
+  "nova": {
+    "purchaseUrl": "https://discord.gg/sided",
+    "offers": [
+      {
+        "platform": "windows",
+        "days": -1,
+        "price": 10
+      }
+    ]
+  },
+  "voronide": {
+    "purchaseUrl": "https://discord.gg/sided",
+    "offers": [
+      {
+        "platform": "windows",
+        "days": -1,
+        "price": 10
       }
     ]
   }
 }
+

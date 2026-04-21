@@ -1,0 +1,19 @@
+{
+	"sunc": {
+		"windows": {
+			"key": "null",
+			"scrapId": "null"
+		}
+	},
+	"badges": ["warning"],
+	"hidden": false,
+	"type": "executor",
+	"tags": [],
+	"platforms": ["linux"],
+	"youtube": "https://www.youtube.com/watch?v=36etYfnCu7c",
+	"urls": {
+		"website": "https://discord.gg/u5dv2hrDyS",
+		"discord": "https://discord.gg/u5dv2hrDyS"
+	},
+	"keyed": false
+}

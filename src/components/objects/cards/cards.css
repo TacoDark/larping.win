@@ -1426,21 +1426,6 @@
 }
 
 .ph-sponsor-base-image.is-keyempire-logo {
-  background: var(--prim);
-  transition:
-    background var(--smooth-duration) var(--smooth-ease),
-    opacity var(--smooth-duration) var(--smooth-ease),
-    filter var(--smooth-duration) var(--smooth-ease);
-  -webkit-mask-image: url("/public/assets/icons/images/keyempire-logo.png");
-  -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-image: url("/public/assets/icons/images/keyempire-logo.png");
-  mask-position: center;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-}
-
 .ph-sponsor-overlay-image {
   background: var(--featured-overlay-fill);
   opacity: var(--featured-overlay-opacity);

@@ -1,111 +1,77 @@
-# voxlis.NET
+# larping.win
 
-Static frontend for [voxlis.net](https://voxlis.net) — a directory for Roblox and CS2 injectors.
+The official high-performance, purple-themed static frontend for **larping.win** — a curated directory for Roblox tools and software.
 
-No build step. No npm. No bundler. Just HTML, CSS, and JS served over HTTP.
-
----
-
-## Running locally
-
-The site uses `fetch()` at runtime to load component HTML, JSON data, and Markdown files. Opening `index.html` directly in the browser will **not** work — it must be served over HTTP.
-
-### Option 1 — VS Code Live Server (recommended)
-
-1. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension in VS Code
-2. Open the project folder in VS Code (`File → Open Folder`)
-3. Right-click `index.html` in the Explorer panel and choose **Open with Live Server**
-4. The browser opens at `http://127.0.0.1:5500`
-
-> To switch pages, navigate to `http://127.0.0.1:5500/roblox.html` or `http://127.0.0.1:5500/cs2.html`
-
-### Option 2 — Python (no extensions needed)
-
-If you have Python installed, run this from the project root in any terminal:
-
-```bash
-python -m http.server 8000
-```
-
-On Windows with the Python launcher:
-
-```bash
-py -m http.server 8000
-```
-
-Then open `http://localhost:8000` in your browser. Press `Ctrl+C` to stop.
+Built with pure HTML, CSS, and Vanilla JavaScript. ZERO dependencies, ZERO build steps.
 
 ---
 
-## Project structure
+## 🚀 Quick Start (Local Development)
 
-```
-index.html              Landing / home page
-roblox.html             Roblox injector directory
-cs2.html                CS2 injector directory
-global.css              Global theme tokens and shared styles
-src/
-  main.js               Bootstraps the page and loads component HTML partials
-  components/           UI components (cards, navbar, footer, modals, etc.)
-  themes/               Custom theme CSS files (Supremacy, Mercy, etc.)
-  config/               Site-wide config constants (theme options, IDs, etc.)
-public/
-  assets/               Icons, images, overlay graphics
-  data/
-    roblox/             Per-exploit data (info, review, points, modals)
-    cs2/                CS2-specific data
-    misc/               Privacy policy, terms, etc.
-```
+The site uses `fetch()` to load data dynamically. You **must** serve it over HTTP for it to work.
+
+### Recommended: VS Code Live Server
+1. Open the project folder in VS Code.
+2. Install the **Live Server** extension.
+3. Right-click `index.html` → **Open with Live Server**.
+4. Navigate to `http://127.0.0.1:5500/roblox.html`.
 
 ---
 
-## Exploit data
+## 🛠️ Customization Guide
 
-Each exploit has its own folder under `public/data/roblox/`. The site reads these at runtime.
+This project is designed to be easily modified. Below are all the options you can change and how to do it.
 
-| File | Purpose |
-|---|---|
-| `info.json` | Name, status, links, tags, pricing tier |
-| `points.json` | Short bullet-point summary shown on the card |
-| `review.md` | Long-form review rendered in the info modal |
-| `modals.json` | Optional extra modal content (warnings, notes) |
+### 1. Adding or Modifying Tools (Cards)
+Tools are stored in `public/data/roblox/`. To add a new one:
+1. **Create a folder**: Name it lowercase (e.g., `mytool`).
+2. **Add `info.json`**: Configure the basic metadata.
+3. **Add `points.json`**: Bullet points shown on the card.
+4. **Add `review.md`**: The full text shown when clicking "More info".
+5. **Update `prices.json`**: (Root of `public/data/roblox/`) update pricing and free status.
 
-Example:
+### 2. Website Configuration & Socials
+Global site settings are found in **`src/config/pages/global.js`** and **`src/components/global/navbar/navbar.html`**.
+- **GitHub Link**: Updated to `https://github.com/TacoDark/larping.win`.
+- **Discord Link**: Located in the `promo` section of global settings.
 
-```
-public/data/roblox/Potassium/
-  info.json
-  points.json
-  review.md
-  modals.json
-```
-
----
-
-## Theming
-
-Theme CSS files live in `src/themes/`. Each file is a self-contained set of CSS custom property overrides scoped to `:root[data-theme="<id>"]`.
-
-- `src/themes/supremacy.css` — dark blood-red theme with video background and glass blur
-- `src/themes/mercy.css` — light white/gold theme
-- `src/config/global/themes.js` — registers available theme options shown in the theme picker
-
-To create a new theme, copy `src/themes/example.css` and register it in `themes.js`.
-
-Full theming documentation is in [src/themes/README.md](./src/themes/README.md).
+### 3. Page Labels & SEO
+Specific page settings are in **`src/config/pages/roblox.js`**.
+- **Labels**: Change `itemPlural` and `itemSingular`.
+- **Search Placeholder**: Change `searchPlaceholder`.
 
 ---
 
-## External dependencies
+## 🏷️ Reference Guide (info.json)
 
-Loaded from CDN at runtime — an internet connection is needed for a fully accurate preview:
+### Available Tags (`"tags": [...]`)
+*   `freemium` / `keysystem` — Displays a yellow key icon.
+*   `serverside` — Displays a green server icon.
+*   `kernel` — Displays a yellow microchip icon.
+*   `decompiler` — Displays a code icon.
+*   `multi-instance` — Displays a multi-layer icon.
+*   `raknet` — Displays a network icon.
+*   `insecure` — Hides the card unless "Insecure Mode" is enabled.
+*   `inviteonly` — Hides card unless "Show invite-only results" is enabled.
+*   `open-source` — Displays a GitHub icon.
+*   `ai` — Displays a robot icon.
+*   `high-performance` — Displays a bolt icon.
+*   `custom-ui` — Displays a paint brush icon.
+*   `scripthub` — Displays a book icon.
+*   `lite` — Displays a leaf icon.
 
-- [Font Awesome](https://fontawesome.com/) — icons
-- [Marked](https://marked.js.org/) — Markdown rendering
-- [highlight.js](https://highlightjs.org/) — code syntax highlighting
+### 🛡️ Available Badges (`"badges": [...]`)
+*   `verified` — Green checkmark.
+*   `trending` — Trending arrow.
+*   `warning` — Yellow warning triangle.
+*   `warningred` — Red high-risk warning.
+
+### 💻 Supported Platforms (`"platforms": [...]`)
+*   `windows`, `macos`, `linux`, `android`, `ios`
 
 ---
 
-## License
-
-Source-available, not open-source. See [LICENSE](./LICENSE) for usage terms.
+## 💜 Credits
+Built for the community. Rebranded and optimized for **larping.win**.
+**Official GitHub:** https://github.com/TacoDark/larping.win
+**Official Discord:** https://discord.gg/ZNMPYWTAMx

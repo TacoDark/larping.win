@@ -14,11 +14,11 @@
     homePath: "/",
     pageTitle: "Roblox",
     searchPlaceholder: "Search Roblox cards...",
-    dataRoot: "/public/data/roblox",
-    statusApiUrl: "https://connect.voxlis.net/endpoints",
-    suncApiUrl: "https://connect.voxlis.net/sunc",
-    pricingFallbackUrl: "https://connect.voxlis.net/key-empire",
-    warningModalEnabled: false,
+    dataRoot: "public/data/roblox",
+    statusApiUrl: "",
+    suncApiUrl: "",
+    pricingFallbackUrl: "",
+    warningModalEnabled: true,
     cardNameOverrides: {
       arceusx: "Arceus X",
       sirhurt: "SirHurt",
@@ -31,16 +31,18 @@
     forceissues: {
       macos: false,
     },
-    platformOrder: ["windows", "macos", "android", "ios"],
+    platformOrder: ["windows", "macos", "linux", "android", "ios"],
     platformLabels: {
       windows: "Windows",
       macos: "macOS",
+      linux: "Linux",
       android: "Android",
       ios: "iOS",
     },
     platformIcons: {
       windows: "fab fa-windows",
       macos: "fab fa-apple",
+      linux: "fab fa-linux",
       android: "fab fa-android",
       ios: "fab fa-apple",
     },
@@ -98,8 +100,44 @@
         label: "Server-side",
         info: "This product supports server-side execution.",
       },
+      inviteonly: {
+        icon: "fas fa-envelope-open-text",
+        toneClass: "is-inviteonly",
+        label: "Invite Only",
+        info: "This product is invite-only and requires a specific voucher or invitation to access.",
+      },
+      "open-source": {
+        icon: "fab fa-github",
+        label: "Open Source",
+        info: "This product is open-source and its code is available to the public.",
+      },
+      ai: {
+        icon: "fas fa-robot",
+        label: "AI Enhanced",
+        info: "This product uses artificial intelligence to enhance its features.",
+      },
+      "high-performance": {
+        icon: "fas fa-bolt",
+        label: "High Performance",
+        info: "This product is optimized for speed and low resource usage.",
+      },
+      "custom-ui": {
+        icon: "fas fa-paint-brush",
+        label: "Custom UI",
+        info: "This product features a unique and highly customizable user interface.",
+      },
+      scripthub: {
+        icon: "fas fa-book",
+        label: "Script Hub",
+        info: "This product contains a large library of pre-made scripts.",
+      },
+      lite: {
+        icon: "fas fa-leaf",
+        label: "Lite",
+        info: "A lightweight version of the tool, built for stability on lower-end devices.",
+      },
     },
-    filterableTags: ["multi-instance", "decompiler", "raknet", "serverside", "kernel", "keysystem"],
+    filterableTags: ["multi-instance", "decompiler", "raknet", "serverside", "kernel", "keysystem", "open-source", "ai", "high-performance", "custom-ui", "scripthub", "lite"],
     showOnlyFilters: ["verified", "trending", "warning"],
     segmentFilters: [
       {
@@ -167,8 +205,8 @@
       showInsecure: false,
     },
     labels: {
-      itemPlural: "exploits",
-      itemSingular: "exploit",
+      itemPlural: "tools",
+      itemSingular: "tool",
       sectionAriaLabel: "Roblox cards",
       summaryAriaLabel: "Roblox catalog summary",
       loadingMessage: "Fetching API status...",
@@ -183,9 +221,9 @@
       },
     },
     clickTracking: {
-      enabled: true,
-      endpointUrl: "https://connect.voxlis.net/data",
-      trackedActions: ["review", "more", "buy-keyempire", "sunc", "tag", "website", "close"],
+      enabled: false,
+      endpointUrl: "",
+      trackedActions: ["review", "more", "buy", "sunc", "tag", "website", "close"],
       trackedUiEvents: {
         navbar: [
           "logo-home",

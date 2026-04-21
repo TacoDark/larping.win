@@ -1,0 +1,19 @@
+{
+	"sunc": {
+		"windows": {
+			"key": "null",
+			"scrapId": "null"
+		}
+	},
+	"badges": ["trending"],
+	"hidden": false,
+	"type": "internal",
+	"tags": ["serverside", "freemium", "scripthub"],
+	"platforms": ["windows", "android", "ios", "macos", "linux"],
+	"youtube": "https://www.youtube.com/watch?v=NTt2thqB0uE",
+	"urls": {
+		"website": "https://serverside.gg",
+		"discord": "https://discord.gg/sided"
+	},
+	"keyed": false
+}

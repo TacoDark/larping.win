@@ -1,0 +1,19 @@
+{
+	"sunc": {
+		"windows": {
+			"key": "null",
+			"scrapId": "null"
+		}
+	},
+	"badges": ["warning"],
+	"hidden": false,
+	"type": "internal",
+	"tags": ["serverside"],
+	"platforms": ["windows", "android", "ios", "macos", "linux"],
+	"youtube": "https://www.youtube.com/watch?v=NTt2thqB0uE",
+	"urls": {
+		"website": "https://discord.com/invite/voronide",
+		"discord": "https://discord.com/invite/voronide"
+	},
+	"keyed": false
+}

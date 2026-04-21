@@ -1,0 +1,19 @@
+{
+	"sunc": {
+		"windows": {
+			"key": "null",
+			"scrapId": "null"
+		}
+	},
+	"badges": ["verified", "trending"],
+	"hidden": false,
+	"type": "internal",
+	"tags": ["serverside", "freemium", "scripthub"],
+	"platforms": ["windows", "android", "ios", "macos", "linux"],
+	"youtube": "https://www.youtube.com/watch?v=36etYfnCu7c",
+	"urls": {
+		"website": "https://aureus.wtf/",
+		"discord": "https://discord.gg/Tn274XhGGc"
+	},
+	"keyed": false
+}

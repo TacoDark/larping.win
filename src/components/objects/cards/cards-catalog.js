@@ -1226,12 +1226,22 @@
     return lines;
   };
 
-  const getModalWarningConfig = (modals = {}) => {
+  const getModalWarningConfig = (modals = {}, info = {}) => {
+    const getBadgeInfo = (key) => BADGE_METADATA[key]?.info || BADGE_METADATA[key]?.message || "";
+
     if (modals?.warningred?.enabled) {
       return {
         variant: "warningred",
         title: "Warning",
-        description: modals.warningred.description || "",
+        description: modals.warningred.description || getBadgeInfo("warningred"),
+      };
+    }
+
+    if (info?.warningred === true || (Array.isArray(info?.badges) && info.badges.includes("warningred"))) {
+      return {
+        variant: "warningred",
+        title: "High-Risk Warning",
+        description: getBadgeInfo("warningred"),
       };
     }
 
@@ -1239,7 +1249,15 @@
       return {
         variant: "warning",
         title: "Warning",
-        description: modals.warning.description || "",
+        description: modals.warning.description || getBadgeInfo("warning"),
+      };
+    }
+
+    if (info?.warning === true || (Array.isArray(info?.badges) && info.badges.includes("warning"))) {
+      return {
+        variant: "warning",
+        title: "Warning",
+        description: getBadgeInfo("warning"),
       };
     }
 
@@ -1308,11 +1326,11 @@
       activeKeys.add("trending");
     }
 
-    if (warningConfig?.variant === "warning") {
+    if (warningConfig?.variant === "warning" || (Array.isArray(info.badges) && info.badges.includes("warning")) || info.warning === true) {
       activeKeys.add("warning");
     }
 
-    if (warningConfig?.variant === "warningred") {
+    if (warningConfig?.variant === "warningred" || (Array.isArray(info.badges) && info.badges.includes("warningred")) || info.warningred === true) {
       activeKeys.add("warningred");
     }
 
@@ -1714,7 +1732,7 @@
       return null;
     }
 
-    const warningConfig = getModalWarningConfig(card.modals);
+    const warningConfig = getModalWarningConfig(card.modals, card.info);
     const websiteTargets = getCardInfoUrlTargets(card.info, "website");
     const discordTargets = getCardInfoUrlTargets(card.info, "discord");
     const fallbackWebsiteUrl =
@@ -1839,16 +1857,13 @@
       WARNING_MODAL_ENABLED && warningConfig && websiteHref !== "#"
         ? ` data-card-website-warning-variant="${escapeHtml(warningConfig.variant || "")}" data-card-website-warning-title="${escapeHtml(warningConfig.title || "")}" data-card-website-warning-description="${escapeHtml(warningConfig.description || "")}"`
         : "";
-    const sponsorMarkup = /key-empire\.com/i.test(purchaseUrl ?? "")
+    const sponsorMarkup = purchaseUrl
       ? `
-        <a class="ph-sponsor-btn is-keyempire" href="${escapeHtml(purchaseUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Buy on Key-Empire" data-click-track-action="buy-keyempire" data-click-track-slug="${escapeHtml(slug)}"${WARNING_MODAL_ENABLED && warningConfig ? ` data-card-warning-slug="${escapeHtml(slug)}"` : ""}>
-          <span class="ph-sponsor-inline">
-            <span class="ph-sponsor-copy">Buy on</span>
-            <span class="ph-sponsor-stack" aria-hidden="true">
-              <span class="ph-sponsor-base-image is-keyempire-logo"></span>
-              <img class="ph-sponsor-base-image" src="/public/assets/icons/images/keyempire-text.png" alt="">
-            </span>
-            ${sponsorPriceSummary ? `<span class="ph-sponsor-price">${escapeHtml(sponsorPriceSummary)}</span>` : ""}
+        <a class="ph-sponsor-btn" href="${escapeHtml(purchaseUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Purchase" data-click-track-action="buy" data-click-track-slug="${escapeHtml(slug)}"${WARNING_MODAL_ENABLED && warningConfig ? ` data-card-warning-slug="${escapeHtml(slug)}"` : ""}>
+          <span class="ph-sponsor-inline" style="gap: 0.5rem; justify-content: center;">
+            <i class="fas fa-cart-shopping" aria-hidden="true" style="font-size: 0.85rem;"></i>
+            <span class="ph-sponsor-copy" style="font-weight: 700;">Buy Now</span>
+            ${sponsorPriceSummary ? `<span class="ph-sponsor-price" style="margin-left: auto;">${escapeHtml(sponsorPriceSummary)}</span>` : ""}
           </span>
         </a>
       `
@@ -1918,6 +1933,18 @@
     const article = trigger.closest("article[data-slug]");
     const slug = article?.dataset.slug || "";
     const card = catalogState.cards.find((entry) => entry.slug === slug);
+    const warningConfig = getModalWarningConfig(card?.modals, card?.info);
+    if (WARNING_MODAL_ENABLED && warningConfig && typeof window.openCardWarningModal === "function") {
+      const opened = window.openCardWarningModal(warningConfig, {
+        href: getCardMoreInfoPath(slug),
+        target: "_self",
+      });
+
+      if (opened) {
+        return;
+      }
+    }
+
     const modalOptions =
       buildCardMoreInfoOptions(card) || {
         title: trigger.dataset.cardReviewTitle || "More info",
@@ -2042,7 +2069,7 @@
 
     const slug = trigger.dataset.cardWarningSlug;
     const card = catalogState.cards.find((entry) => entry.slug === slug);
-    const warningConfig = getModalWarningConfig(card?.modals);
+    const warningConfig = getModalWarningConfig(card?.modals, card?.info);
 
     if (!warningConfig || !trigger.href) {
       return;
@@ -2263,7 +2290,7 @@
   const hasBadge = (card, badge) => Array.isArray(card.info.badges) && card.info.badges.includes(badge);
   const hasTrendingBadge = (card) => hasBadge(card, "trending");
   const hasVerifiedBadge = (card) => hasBadge(card, "verified");
-  const hasWarningBadge = (card) => Boolean(getModalWarningConfig(card?.modals));
+  const hasWarningBadge = (card) => Boolean(getModalWarningConfig(card?.modals, card?.info));
 
   const getCardStatusClass = (card, statusMap) => {
     if (!STATUS_ENABLED) {
@@ -2622,7 +2649,7 @@
   const renderCard = (card, statusMap) => {
     const reviewUrl = getCardReviewUrl(card);
     const summaryLines = buildSummaryLines(card);
-    const warningConfig = getModalWarningConfig(card.modals);
+    const warningConfig = getModalWarningConfig(card.modals, card.info);
     const lineMarkup = summaryLines.length
       ? `
         <div class="ph-lines">

@@ -134,7 +134,7 @@
       title: String(updateToast.title || "Latest Update"),
       message: String(
         updateToast.message ||
-          `voxlis.NET was last updated ${relativeTimestamp || formattedTimestamp}!`,
+          `larping.win was last updated ${relativeTimestamp || formattedTimestamp}!`,
       ),
       duration: Number(updateToast.duration) > 0 ? Number(updateToast.duration) : 5200,
       icon: String(updateToast.icon || "fa-clock-rotate-left"),
@@ -305,13 +305,13 @@
     try {
       logStep("initializing page config...");
       const activeCatalog = window.VOXLIS_PAGE?.catalog ?? window.VOXLIS_CONFIG?.activeCatalogPage ?? {};
-      const pageTitle = activeCatalog.pageTitle ? `voxlis - ${activeCatalog.pageTitle}` : "voxlis - BETA";
+      const pageTitle = activeCatalog.pageTitle ? `larping.win - ${activeCatalog.pageTitle}` : "larping.win - BETA";
       document.title = pageTitle;
       logStep(`page: ${pageTitle}`, "ok");
 
       logStep("mounting promo...");
       const promoMount = document.getElementById("promoMount");
-      if (promoMount) {
+      if (promoMount && window.location.pathname.indexOf("roblox") === -1) {
         promoMount.innerHTML = window.getPromoMarkup?.() || "";
         logStep("promo mounted", "ok");
       }
@@ -324,7 +324,7 @@
         document.getElementById("featuredMountSecondary")
       ].filter(Boolean);
 
-      if (featuredMounts.length) {
+      if (featuredMounts.length && window.VOXLIS_CONFIG?.featured?.enabled !== false) {
         const html = window.getFeaturedCardMarkup?.() || "";
         featuredMounts.forEach((mount, index) => {
           mount.innerHTML = html;

@@ -18,17 +18,17 @@
 
   existingConfig.themes = {
     storageKeys: {
-      theme: "voxlis-theme",
-      drawerWidth: "voxlis-theme-drawer-width",
-      hideFeaturedAds: "voxlis-hide-featured-ads",
-      hidePromo: "voxlis-hide-promo",
-      hideToastPopups: "voxlis-hide-toast-popups",
-      hideNavbarWarning: "voxlis-hide-navbar-warning",
-      hideBottomFade: "voxlis-hide-bottom-fade",
-      customThemeColor: "voxlis-custom-accent-color",
+      theme: "larping-theme",
+      drawerWidth: "larping-theme-drawer-width",
+      hideFeaturedAds: "larping-hide-featured-ads",
+      hidePromo: "larping-hide-promo",
+      hideToastPopups: "larping-hide-toast-popups",
+      hideNavbarWarning: "larping-hide-navbar-warning",
+      hideBottomFade: "larping-hide-bottom-fade",
+      customThemeColor: "larping-custom-accent-color",
     },
     ids: {
-      default: "blue",
+      default: "purple",
       custom: "custom",
     },
     events: {
@@ -42,24 +42,24 @@
       desktopMediaQuery: "(min-width: 769px)",
     },
     customAccent: {
-      defaultHex: "#22c55e",
+      defaultHex: "#a855f7",
     },
     groups: [
       { id: "accent", label: "Color Variants" },
     ],
     options: [
       {
-        id: "blue",
-        label: "Monochrome",
+        id: "purple",
+        label: "Ametrine",
         previewGradient:
-          "linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(200, 200, 200, 0.12) 56%, rgba(150, 150, 150, 0.1) 100%)",
-        swatch: "#FFFFFF",
+          "linear-gradient(90deg, rgba(168, 85, 247, 0.18) 0%, rgba(139, 92, 246, 0.12) 56%, rgba(109, 40, 217, 0.1) 100%)",
+        swatch: "#A855F7",
         group: "accent",
       },
       {
         id: "custom",
         label: "Custom",
-        swatch: "#22C55E",
+        swatch: "#A855F7",
         group: "accent",
         supportsCustomColor: true,
       },

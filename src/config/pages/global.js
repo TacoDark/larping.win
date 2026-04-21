@@ -8,12 +8,10 @@
 
   configSources.global = {
     repository: {
-      owner: "localscripts",
+      owner: "TacoDark",
       name: "larping.win",
       branch: "main",
-      commitEndpoint: isLocalPreview
-        ? "http://localhost:8000/public_html/commit.php"
-        : "https://connect.voxlis.net/commit",
+      commitEndpoint: "",
     },
     statusLabels: {
       updated: "Updated",
@@ -69,37 +67,16 @@
       description: "Giveaways, automatic notification for software updates, and more!",
       actions: [
         {
-          href: "https://discord.gg/Ynxbp2YPus",
+          href: "https://discord.gg/ZNMPYWTAMx",
           label: "Discord",
           trackingKey: "discord",
           buttonClassName: "promo-action-button-discord",
           iconClass: "fab fa-discord",
-        },
-        {
-          href: "https://www.youtube.com/channel/UCRDj_epbbwvpLTCFDmeL7Zg",
-          label: "YouTube",
-          trackingKey: "youtube",
-          buttonClassName: "promo-action-button-youtube",
-          iconClass: "fab fa-youtube",
-        },
-        {
-          href: "https://www.trustpilot.com/review/larping.win",
-          label: "Trustpilot",
-          trackingKey: "trustpilot",
-          buttonClassName: "promo-action-button-trustpilot",
-          iconClass: "fas fa-star",
-        },
+        }
       ],
     },
     featured: {
-      ariaLabel: "Featured sponsored card",
-      title: "Featured",
-      hideButtonLabel: "Hide ads",
-      href: "https://www.youtube.com/channel/UCRDj_epbbwvpLTCFDmeL7Zg",
-      backgroundImageSrc: "/public/assets/overlay/promo-1.png",
-      backgroundImageAlt: "Advertisement background",
-      logoImageSrc: "/public/assets/overlay/promo-2.png",
-      logoImageAlt: "",
+      enabled: false
     },
   };
 
