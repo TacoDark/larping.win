@@ -39,6 +39,15 @@
         "price": 10
       }
     ]
+  },
+  "exoliner": {
+    "purchaseUrl": "https://exoliner.wtf/",
+    "offers": [
+      {
+        "platform": "windows",
+        "days": -1,
+        "price": 10
+      }
+    ]
   }
 }
-
