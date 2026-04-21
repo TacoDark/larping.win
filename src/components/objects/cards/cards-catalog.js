@@ -181,7 +181,7 @@
 
     return [
       ...new Set(
-        [...overrideCandidates, getCardDisplayName(slug), titleCase(slug), slug]
+        [...overrideCandidates, slug, getCardDisplayName(slug), titleCase(slug)]
           .map((value) => String(value || "").trim())
           .filter(Boolean),
       ),
