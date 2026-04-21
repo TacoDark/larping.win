@@ -23,7 +23,7 @@
       return normalizedPath;
     }
 
-    return `/${normalizedPath.replace(/^\/+/, "")}`;
+    return normalizedPath.replace(/^\/+/, "");
   };
   const API_TIMEOUT_MS = 5000;
   const API_RETRY_INTERVAL_MS = 10000;

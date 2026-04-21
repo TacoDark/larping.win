@@ -26,7 +26,7 @@
       </p>
       <img
         class="info-modal-null-review-image"
-        src="/public/assets/misc/hmmm.gif"
+        src="public/assets/misc/hmmm.gif"
         alt="Verification pending"
         loading="lazy"
       >

@@ -4,12 +4,12 @@
     policy: {
       title: "Policy",
       path: "/policy/",
-      reviewUrl: "/public/data/misc/policy.md",
+      reviewUrl: "public/data/misc/policy.md",
     },
     privacy: {
       title: "Privacy",
       path: "/privacy/",
-      reviewUrl: "/public/data/misc/privacy.md",
+      reviewUrl: "public/data/misc/privacy.md",
     },
   };
 

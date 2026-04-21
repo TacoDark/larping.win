@@ -60,7 +60,7 @@
       .replace(/\b\w/g, (character) => character.toUpperCase());
   const getAssetIconPath = (assetIcon = "") => {
     const normalizedAssetIcon = String(assetIcon || "").trim().replace(/^\/+/, "");
-    return normalizedAssetIcon ? resolveSitePath(`/public/assets/${normalizedAssetIcon}`) : "";
+    return normalizedAssetIcon ? resolveSitePath(`public/assets/${normalizedAssetIcon}`) : "";
   };
   const hasAvailableAssetIcon = (assetIcon = "") =>
     assetIconAvailability.get(String(assetIcon || "").trim()) === true;
@@ -357,7 +357,7 @@
             )}</span>
             <img
               class="filter-insecure-image"
-              src="/public/assets/misc/evilsteamhappy.png"
+              src="public/assets/misc/evilsteamhappy.png"
               alt=""
               loading="lazy"
             />
@@ -398,7 +398,7 @@
             )}</span>
             <img
               class="filter-insecure-image"
-              src="/public/assets/misc/lock.png"
+              src="public/assets/misc/lock.png"
               alt=""
               loading="lazy"
             />

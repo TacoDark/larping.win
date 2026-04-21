@@ -2,7 +2,7 @@
   const PAGE_KEY = window.VOXLIS_PAGE?.key || "roblox";
   const ACTIVE_CATALOG = window.VOXLIS_PAGE?.catalog ?? window.VOXLIS_CONFIG?.activeCatalogPage ?? {};
   const {
-    dataRoot: DATA_ROOT = "/public/data/roblox",
+    dataRoot: DATA_ROOT = "public/data/roblox",
     statusApiUrl: STATUS_API_URL = "https://connect.voxlis.net/endpoints",
     suncApiUrl: SUNC_API_URL = "https://connect.voxlis.net/sunc",
     pricingFallbackUrl: PRICING_FALLBACK_URL = "",
@@ -212,7 +212,7 @@
 
   const getAssetIconPath = (assetIcon = "") => {
     const normalizedAssetIcon = String(assetIcon || "").trim().replace(/^\/+/, "");
-    return normalizedAssetIcon ? resolveSitePath(`/public/assets/${normalizedAssetIcon}`) : "";
+    return normalizedAssetIcon ? resolveSitePath(`public/assets/${normalizedAssetIcon}`) : "";
   };
   const hasAvailableAssetIcon = (assetIcon = "") =>
     assetIconAvailability.get(String(assetIcon || "").trim()) === true;
@@ -2845,7 +2845,7 @@
             ? `
               <img
                 class="cards-empty-gif"
-                src="/public/assets/misc/hmmm.gif"
+                src="public/assets/misc/hmmm.gif"
                 alt="No matching results"
                 loading="lazy"
               />
@@ -2877,7 +2877,7 @@
     grid.classList.add("is-empty");
     grid.innerHTML = `
       <div class="cards-loading-state" role="status" aria-live="polite">
-        <img class="cards-loading-gif" src="/public/assets/misc/loading.gif" alt="" />
+        <img class="cards-loading-gif" src="public/assets/misc/loading.gif" alt="" />
         <p class="cards-loading-copy">${escapeHtml(message)}</p>
         <div class="cards-loading-actions">
           <button class="cards-empty-action cards-loading-action" type="button" data-loading-action="retry-fetching-api">

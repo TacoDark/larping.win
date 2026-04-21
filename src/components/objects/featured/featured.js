@@ -28,8 +28,8 @@
             data-click-track-ui-group="featured"
             data-click-track-ui-key="request"
           >
-            <img src="${escapeHtml(cardConfig.backgroundImageSrc || "/public/assets/overlay/promo-1.png")}" alt="${escapeHtml(cardConfig.backgroundImageAlt || "Advertisement background")}" class="featured-background-image">
-            <img src="${escapeHtml(cardConfig.logoImageSrc || "/public/assets/overlay/promo-2.png")}" alt="${escapeHtml(cardConfig.logoImageAlt || "")}" class="featured-logo-image" aria-hidden="true">
+            <img src="${escapeHtml(cardConfig.backgroundImageSrc || "public/assets/overlay/promo-1.png")}" alt="${escapeHtml(cardConfig.backgroundImageAlt || "Advertisement background")}" class="featured-background-image">
+            <img src="${escapeHtml(cardConfig.logoImageSrc || "public/assets/overlay/promo-2.png")}" alt="${escapeHtml(cardConfig.logoImageAlt || "")}" class="featured-logo-image" aria-hidden="true">
             <span class="featured-logo-overlay" aria-hidden="true"></span>
           </a>
         </div>

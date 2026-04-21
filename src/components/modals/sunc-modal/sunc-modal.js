@@ -269,7 +269,7 @@
                 <span class="sunc-widget-brand-mark-s"></span>
                 <img
                   class="sunc-widget-brand-mark-word"
-                  src="/public/assets/icons/vectors/sunc_badge_white.svg"
+                  src="public/assets/icons/vectors/sunc_badge_white.svg"
                   alt=""
                 >
               </span>
