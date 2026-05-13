@@ -136,8 +136,13 @@
         label: "Lite",
         info: "A lightweight version of the tool, built for stability on lower-end devices.",
       },
+      tool: {
+        icon: "fas fa-wrench",
+        label: "Tool",
+        info: "This product is a tool used for development of your own exploits.",
+      },
     },
-    filterableTags: ["multi-instance", "decompiler", "raknet", "serverside", "kernel", "keysystem", "open-source", "ai", "high-performance", "custom-ui", "scripthub", "lite"],
+    filterableTags: ["multi-instance", "decompiler", "raknet", "serverside", "kernel", "keysystem", "open-source", "ai", "high-performance", "custom-ui", "scripthub", "lite", "tool"],
     showOnlyFilters: ["verified", "trending", "warning"],
     segmentFilters: [
       {
@@ -169,6 +174,7 @@
           { value: "all", label: "All" },
           { value: "external", label: "External" },
           { value: "executor", label: "Executor" },
+          { value: "tool", label: "Tool" },
         ],
       },
       {
@@ -186,6 +192,7 @@
       internal: "Executor",
       external: "Cheat Menu",
       serverside: "Server-side",
+      tool: "Tool",
     },
     sortOptions: [
       { value: "random", label: "Random" },

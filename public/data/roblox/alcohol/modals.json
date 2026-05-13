@@ -1,6 +1,6 @@
 {
 	"warning": {
-		"enabled": true,
+		"enabled": false,
 		"description": "This product could be detected, it has not been proven."
 	}
 }

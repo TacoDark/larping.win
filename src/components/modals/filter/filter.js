@@ -155,11 +155,9 @@
   const buildCheckboxIconMarkup = ({ assetIcon = "", iconClass = "", iconToneClass = "", toneClass = "" }) => {
     if (assetIcon) {
       const assetIconPath = getAssetIconPath(assetIcon);
-      if (!assetIconPath || !hasAvailableAssetIcon(assetIcon)) {
-        return "";
+      if (assetIconPath && hasAvailableAssetIcon(assetIcon)) {
+        return `<span class="filter-checkbox-icon${toneClass ? ` ${escapeHtml(toneClass)}` : ""}"><span class="filter-asset-icon" style="--filter-asset-icon: url('/${escapeHtml(assetIconPath)}')" aria-hidden="true"></span></span>`;
       }
-
-      return `<span class="filter-checkbox-icon${toneClass ? ` ${escapeHtml(toneClass)}` : ""}"><span class="filter-asset-icon" style="--filter-asset-icon: url('${escapeHtml(assetIconPath)}')" aria-hidden="true"></span></span>`;
     }
 
     if (iconClass) {
@@ -214,8 +212,8 @@
       label: tagMeta.label || titleCase(tag),
       dataAttributes: `data-tag="${escapeHtml(tag)}"`,
       assetIcon: tagMeta.assetIcon || "",
-      iconClass: tagMeta.assetIcon ? "" : tagMeta.icon || "",
-      iconToneClass: tagMeta.assetIcon ? "" : tagMeta.iconToneClass || "",
+      iconClass: tagMeta.iconClass || tagMeta.icon || "",
+      iconToneClass: tagMeta.iconToneClass || "",
       toneClass,
     });
   };

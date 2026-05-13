@@ -5,12 +5,12 @@
 			"scrapId": "null"
 		}
 	},
-	"badges": ["warning"],
+	"badges": [],
 	"hidden": false,
-	"type": "executor",
-	"tags": ["inviteonly"],
-	"platforms": ["linux"],
-	"youtube": "https://www.youtube.com/watch?v=36etYfnCu7c",
+	"type": "tool",
+	"tags": ["tool", "lite"],
+	"platforms": ["windows"],
+	"youtube": "https://www.youtube.com/watch?v=B-Ff-p8H6Vk",
 	"urls": {
 		"website": "https://discord.gg/u5dv2hrDyS",
 		"discord": "https://discord.gg/u5dv2hrDyS"
