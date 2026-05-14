@@ -1,0 +1,100 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Directory - larping.win</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .directory-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        .directory-list li {
+            background: #ffffff;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .directory-list a {
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+        .directory-list a:hover {
+            text-decoration: underline;
+        }
+        .badge-file {
+            background: #888;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window" style="margin-top: 5vh;">
+        <div class="title-bar">
+            <span>Network_Directory.html</span>
+            <div class="title-bar-controls">
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Hosted Profiles</h2>
+            <p>Below is an index of all profiles currently hosted on larping.win. This list updates automatically when new pages are added.</p>
+            
+            <ul class="directory-list">
+                <!-- Jekyll Loop for HTML Pages -->
+                {% assign has_pages = false %}
+                
+                {% for p in site.html_pages %}
+                  {% if p.name != "index.html" and p.name != "404.html" and p.name != "directory.html" %}
+                    <li>
+                        <a href="{{ p.url | relative_url }}">{{ p.name | replace: ".html", "" }}</a>
+                        <span class="badge-file">Page</span>
+                    </li>
+                    {% assign has_pages = true %}
+                  {% endif %}
+                {% endfor %}
+
+                <!-- Jekyll Loop for static HTML files without front matter -->
+                {% for static_file in site.static_files %}
+                  {% if static_file.extname == ".html" and static_file.name != "index.html" and static_file.name != "404.html" and static_file.name != "directory.html" %}
+                    <li>
+                        <a href="{{ static_file.path | relative_url }}">{{ static_file.name | replace: ".html", "" }}</a>
+                        <span class="badge-file">File</span>
+                    </li>
+                    {% assign has_pages = true %}
+                  {% endif %}
+                {% endfor %}
+
+                {% if has_pages == false %}
+                    <li><em>No profiles hosted yet. Be the first!</em></li>
+                {% endif %}
+            </ul>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="index.html">[ Return to Home.exe ]</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

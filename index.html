@@ -1,270 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>larping.win - Home</title>
-<link rel="icon" href="public/assets/icons/images/taskbar.ico" type="image/x-icon">
-<link rel="shortcut icon" href="public/assets/icons/images/taskbar.ico" type="image/x-icon">
-
-<meta property="og:title" content="larping.win">
-<meta property="og:description" content="larping.win - The go-to source for tools: everything you will need, all in one place.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://larping.win">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=DynaPuff:wght@500;600;700&family=Open+Sans:wght@600;700&display=swap">
-<link rel="stylesheet" href="global.css">
-<link rel="stylesheet" href="src/components/global/navbar/navbar.css">
-<link rel="stylesheet" href="src/components/global/layout/layout.css">
-<link rel="stylesheet" href="src/components/modals/themes/themes.css">
-<link rel="stylesheet" href="src/components/modals/notification/site-toast.css">
-<link rel="stylesheet" href="src/components/global/loading/loading.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-  /* Navbar blur on homepage */
-  .navbar-header {
-    background: rgba(0, 0, 0, 0.35) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
-    backdrop-filter: blur(18px) !important;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.06) !important;
-  }
-
-  /* Hide navbar warning, search bar, and filter button — not needed on homepage */
-  .navbar-warning-bar,
-  .navbar-search,
-  #filterButton,
-  #mobileQuickFilterButton,
-  #mobileTopFilterButton,
-  #mobileMenuFilterButton,
-  #mobQuickSearchBtn,
-  #mobSearchTgl,
-  #mobSearchPanel {
-    display: none !important;
-  }
-
-  /* Hide the bottom page fade — it shows as a dark strip with overflow: hidden */
-  body::after {
-    display: none !important;
-  }
-
-  /* Prevent any scrolling */
-  html, body {
-    overflow: hidden;
-    height: 100%;
-  }
-
-  /* Image background */
-  .home-video-bg {
-    position: fixed;
-    inset: -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-    filter: blur(2px);
-  }
-
-  /* Make body transparent so the fixed video behind it is visible */
-  body {
-    background: transparent !important;
-  }
-
-  /* Dark overlay */
-  .home-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  /* Ensure hero content sits above the overlay */
-  .home-hero {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: calc(100vh - 4rem);
-    padding: 2rem;
-    gap: 1.25rem;
-  }
-
-  .home-hero-logo .navbar-logo-base-image {
-    height: 72px;
-  }
-
-  .home-hero-title {
-    margin: 0;
-    font-size: clamp(2.25rem, 6vw, 4rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.6);
-  }
-
-  .home-hero-title span {
-    color: var(--prim);
-  }
-
-  .home-hero-sub {
-    margin: 0;
-    font-size: clamp(0.95rem, 2vw, 1.125rem);
-    color: rgba(255,255,255,0.72);
-    max-width: 480px;
-    line-height: 1.6;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
-  }
-
-  .home-cta-row {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 0.5rem;
-  }
-
-  .home-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1.4rem 0.65rem 1rem;
-    border-radius: var(--rad);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-  }
-
-  .home-cta.is-primary {
-    background: var(--prim-grd);
-    color: #000;
-    border: none;
-    box-shadow: 0 0 0 0 var(--prim-glw);
-  }
-
-  .home-cta.is-primary:hover {
-    opacity: 0.9;
-    box-shadow: 0 0 16px var(--prim-glw);
-  }
-
-  .home-cta.is-secondary {
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: none;
-  }
-
-  .home-cta.is-secondary:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.32);
-    color: #fff;
-  }
-
-  .home-cta-icon {
-    width: 1.1em;
-    height: 1.1em;
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 480px) {
-    .home-hero {
-      padding: 1.25rem;
-      gap: 1rem;
-    }
-
-    .home-hero-logo .navbar-logo-base-image {
-      height: 48px;
-    }
-
-    .home-hero-title {
-      font-size: 2rem;
-    }
-
-    .home-hero-sub {
-      font-size: 0.875rem;
-    }
-
-    .home-cta {
-      padding: 0.55rem 1.1rem 0.55rem 0.85rem;
-      font-size: 0.85rem;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>larping.win - Larp your way, all day.</title>
+    <meta name="description" content="Host your custom HTML profiles on larping.win. Larp your way, all day.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<video id="home-bg-legacy" class="home-video-bg" src="https://shared.akamai.steamstatic.com/community_assets/images/items/1098340/ceafcbc9f8ebb39f1056e3c3eea8a9395a51b139.mp4" autoplay loop muted playsinline aria-hidden="true"></video>
-<div class="home-overlay" aria-hidden="true"></div>
-
-
-<div id="loading-screen" aria-label="Loading">
-  <img class="loading-gif" src="public/assets/misc/loading.gif" alt="Loading…" draggable="false">
-  <div class="loading-actions">
-    <button class="loading-skip-btn" type="button">Skip Loading</button>
-  </div>
-</div>
-
-<div id="navbarMount"></div>
-
-<main>
-  <section class="home-hero">
-    <span class="home-hero-title" style="font-size: 2.5rem; color: #fff; margin-bottom: 2rem; display: block;" aria-hidden="true">
-      larping.win
-    </span>
-    <h1 class="home-hero-title">No limits. <span>No mercy.</span></h1>
-    <p class="home-hero-sub">The sharpest tools, reviewed and ranked daily. Get ahead.</p>
-    <div class="home-cta-row">
-      <a class="home-cta is-primary" href="roblox.html">
-        <svg class="home-cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320.4 320.4" aria-hidden="true"><rect width="320.4" height="320.4" rx="54.8" fill="#3156ff"/><path fill="#fff" d="M99 56.5 266 99.5 223.2 266.6 56 223.7M180.2 193.5 193.5 144.6 144.6 131.4 131.4 180.2"/></svg>
-        View Roblox Page
-      </a>
+    <!-- Header Window -->
+    <div class="window header-window">
+        <div class="title-bar">
+            <span>Welcome.exe</span>
+            <div class="title-bar-controls">
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+            </div>
+        </div>
+        <div class="window-content text-center">
+            <h1 class="logo">larping.win</h1>
+            <p class="slogan">Larp your way, all day.</p>
+        </div>
     </div>
-  </section>
 
-</main>
+    <!-- Introduction Window -->
+    <div class="window">
+        <div class="title-bar">
+            <span>Introduction.txt</span>
+            <div class="title-bar-controls">
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Introduction</h2>
+            <p>Welcome to larping.win. We provide an uncompromising hosting environment for your digital identity.</p>
+            <p>Unlike standard bio-link services that restrict you to rigid templates, preset color themes, and basic link buttons, larping.win gives you absolute freedom. You provide the raw HTML, CSS, and JavaScript. We host it. You are entirely in control of how you present yourself to the internet.</p>
+            <p>Whether you want a nostalgic Web 1.0 page, a highly interactive modern portfolio, or an intricate custom design, the canvas is entirely yours. Build it, upload it, and larp your way, all day.</p>
+        </div>
+    </div>
 
-<div id="themesMount"></div>
+    <!-- Features Window -->
+    <div class="window">
+        <div class="title-bar">
+            <span>Features.dll</span>
+            <div class="title-bar-controls">
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Core Features</h2>
+            <ul class="feature-list">
+                <li>
+                    <strong>Raw Code Access</strong>
+                    <p>Write your own HTML, CSS, and JS from scratch. No builders. No limits. Just your pure code served directly to visitors.</p>
+                </li>
+                <li>
+                    <strong>Dedicated Subdirectories</strong>
+                    <p>Upgrade to a dedicated folder. Need to host an intricate multi-page site, manage complex asset structures, or build an entire ecosystem? A custom directory handles it all.</p>
+                </li>
+                <li>
+                    <strong>Persistent Uptime</strong>
+                    <p>Your profile is hosted on a stable infrastructure ensuring your presence remains online continuously without interruption.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-<script>
-  (() => {
-    const LEGACY_ID = "blue";
-    const STORAGE_KEY = "voxlis-theme";
-    const el = () => document.getElementById("home-bg-legacy");
-    const apply = (theme) => {
-      const v = el();
-      if (!v) return;
-      const isLegacy = !theme || theme === LEGACY_ID;
-      v.style.display = isLegacy ? "" : "none";
-      if (isLegacy) { v.play?.(); } else { v.pause?.(); }
-    };
-    document.addEventListener("DOMContentLoaded", () => {
-      apply(localStorage.getItem(STORAGE_KEY));
-    });
-    window.addEventListener("site-theme-change", (e) => {
-      apply(e?.detail?.theme);
-    });
-  })();
-</script>
-<script src="src/config/pages/global.js"></script>
-<script src="src/config/global/logic.js"></script>
-<script src="src/config/global/themes.js"></script>
-<script src="src/themes/themes.js"></script>
-<script src="src/components/global/loading/loading.js"></script>
-<script src="src/components/global/navbar/navbar.js"></script>
-<script src="src/components/modals/themes/themes.js"></script>
-<script src="src/components/modals/notification/site-toast.js"></script>
-<script src="src/main.js"></script>
+    <!-- Pricing Window -->
+    <div class="window">
+        <div class="title-bar">
+            <span>Pricing.sys</span>
+            <div class="title-bar-controls">
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Pricing Tiers</h2>
+            
+            <div class="pricing-grid">
+                <div class="tier">
+                    <div class="tier-header">
+                        <h3>Base Tier</h3>
+                        <div class="price">$2.00 / 1000 ROBUX</div>
+                    </div>
+                    <ul>
+                        <li>1 Custom HTML File</li>
+                        <li>Hosted natively on larping.win/yourname</li>
+                        <li>Lifetime access</li>
+                    </ul>
+                </div>
 
+                <div class="tier">
+                    <div class="tier-header">
+                        <h3>Folder Upgrade</h3>
+                        <div class="price">+$1.00 / +500 ROBUX</div>
+                    </div>
+                    <ul>
+                        <li>Dedicated Folder (larping.win/yourfolder/)</li>
+                        <li>Host multiple HTML pages</li>
+                        <li>Dedicated space for local CSS/JS assets</li>
+                        <li>Lifetime access</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accepted-currencies">
+                Accepted Currencies: SOL, ETH, BITCOIN, ROBUX
+            </div>
+        </div>
+    </div>
+
+    <!-- Process & Updates Window -->
+    <div class="window">
+        <div class="title-bar">
+            <span>Manual_Processing.log</span>
+            <div class="title-bar-controls">
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+                <div class="control-btn"></div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Acquisition & Updates</h2>
+            
+            <div class="info-box">
+                <strong>Notice:</strong> Automation infrastructure is currently under development. All setups, purchases, and page updates are processed manually via tickets.
+            </div>
+
+            <p>To acquire your space or update your existing files, follow this procedure:</p>
+            <ol class="steps-list">
+                <li>Join our communications server: <a href="https://discord.gg/msQzHwfaeE" target="_blank" rel="noopener noreferrer">discord.gg/msQzHwfaeE</a></li>
+                <li>Open a support ticket in the designated channel.</li>
+                <li>To <strong>buy</strong>: State your intended tier and transmit payment via Crypto or Robux. Then, provide your HTML files.</li>
+                <li>To <strong>update</strong>: Simply drop your new HTML files into your ticket and request an update.</li>
+            </ol>
+
+            <br>
+            <div class="info-box">
+                <strong>Important:</strong> Because file updates are processed manually, and our staff are not always available 24/7, please be aware that <strong>it can take a few hours</strong> for your updated files to reflect on the live website. We appreciate your patience while we build our automated systems.
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="directory.html">[ View Network Directory ]</a>
+    </div>
+
+    <footer>
+        &copy; 2026 larping.win. All Rights Reserved.
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
