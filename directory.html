@@ -61,25 +61,25 @@ layout: null
             <p>Below is an index of all profiles currently hosted on larping.win. This list updates automatically when new pages are added.</p>
             
             <ul class="directory-list">
-                <!-- Jekyll Loop for HTML Pages -->
+                <!-- Jekyll Loop for Pages -->
                 {% assign has_pages = false %}
                 
-                {% for p in site.html_pages %}
-                  {% if p.name != "index.html" and p.name != "404.html" and p.name != "directory.html" %}
+                {% for p in site.pages %}
+                  {% if p.name != "index.html" and p.name != "404.html" and p.name != "directory.html" and p.extname == ".html" %}
                     <li>
-                        <a href="{{ p.url | relative_url }}">{{ p.name | replace: ".html", "" }}</a>
+                        <a href="{{ p.url | replace: '.html', '' | relative_url }}">{{ p.name | replace: ".html", "" }}</a>
                         <span class="badge-file">Page</span>
                     </li>
                     {% assign has_pages = true %}
                   {% endif %}
                 {% endfor %}
 
-                <!-- Jekyll Loop for static HTML files without front matter -->
+                <!-- Jekyll Loop for static HTML files -->
                 {% for static_file in site.static_files %}
                   {% if static_file.extname == ".html" and static_file.name != "index.html" and static_file.name != "404.html" and static_file.name != "directory.html" %}
                     <li>
-                        <a href="{{ static_file.path | relative_url }}">{{ static_file.name | replace: ".html", "" }}</a>
-                        <span class="badge-file">File</span>
+                        <a href="{{ static_file.path | replace: '.html', '' | relative_url }}">{{ static_file.name | replace: ".html", "" }}</a>
+                        <span class="badge-file">Page</span>
                     </li>
                     {% assign has_pages = true %}
                   {% endif %}
@@ -91,7 +91,7 @@ layout: null
             </ul>
 
             <div style="margin-top: 30px; text-align: center;">
-                <a href="index.html">[ Return to Home.exe ]</a>
+                <a href="/">[ Return to Home.exe ]</a>
             </div>
         </div>
     </div>
