@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan's Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Inline styles to demonstrate a standalone uploaded file -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: #222;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 2px solid #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #888;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: #e0e0e0;
+        }
+
+        p.bio {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-btn {
+            display: block;
+            padding: 12px;
+            background: transparent;
+            color: #e0e0e0;
+            text-decoration: none;
+            border: 1px solid #444;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .link-btn:hover {
+            background: #e0e0e0;
+            color: #000;
+            border-color: #e0e0e0;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.75rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <!-- Placeholder Avatar -->
+        <div class="avatar">R</div>
+        
+        <h1>ryan</h1>
+        <p class="bio">this is an poorly ai generated example page.</p>
+        
+        <div class="links">
+            <a href="#" class="link-btn">Discord</a>
+            <a href="#" class="link-btn">GitHub</a>
+            <a href="#" class="link-btn">Twitter / X</a>
+            <a href="/" class="link-btn" style="border-color: #666; margin-top: 10px;">Return to larping.win</a>
+        </div>
+
+        <div class="footer-note">
+            Hosted on larping.win
+        </div>
+    </div>
+
+</body>
+</html>
